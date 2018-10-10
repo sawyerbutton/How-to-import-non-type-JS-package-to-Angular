@@ -50,4 +50,3 @@ declare module 'customPkg'
 import * as yourPreferedName from 'customPkg';
 yourPreferedName.method();
 ```
-
