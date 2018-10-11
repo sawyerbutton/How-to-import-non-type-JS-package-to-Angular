@@ -2,17 +2,17 @@
 
 ## 如何在Angular中导入和使用非@type类型的JS库
 
-> TypeScript是JavaScript的超集，可编译为纯JavaScript
+> TypeScript是JavaScript的超集,可编译为纯JavaScript
 
-> 但是TypeScript有自己的语法，函数和规定类型的变量，但是当要使用外部库(比如underscore)时，需要声明TypeScript的类型定义
+> 但是TypeScript有自己的语法,函数和规定类型的变量,但是当要使用外部库(比如underscore)时,需要声明TypeScript的类型定义
 
-> 在JavaScript中参数类型并不重要，因为在编写代码时不会出错(虽然可能在编译阶段报错)，但TypeScript不允许向一个接收Number类型的数组传入String类型的变量
+> 在JavaScript中参数类型并不重要,因为在编写代码时不会出错(虽然可能在编译阶段报错),但TypeScript不允许向一个接收Number类型的数组传入String类型的变量
 
-> 但是这并不意味着需要将JavaScript类库重写为TypeScript类库，TypeScript提供声明文件`(* .d.ts)`用于定义类型并标准化既存的JavaScript文件/库
+> 但是这并不意味着需要将JavaScript类库重写为TypeScript类库,TypeScript提供声明文件`(* .d.ts)`用于定义类型并标准化既存的JavaScript文件/库
 
-> 随着TypeScript的发展，越来越多的JavaScript文件/库已经提供了TypeScript类型声明文件，只需要在[Type Search](https://microsoft.github.io/TypeSearch/)中搜索所期待的库并通过npm或yarn下载即可
+> 随着TypeScript的发展,越来越多的JavaScript文件/库已经提供了TypeScript类型声明文件,只需要在[Type Search](https://microsoft.github.io/TypeSearch/)中搜索所期待的库并通过npm或yarn下载即可
 
-### 如何向angular中导入包含TypeScript类型声明的库以及如何导入不包含类型声明的库
+### 如何向Angular中导入包含TypeScript类型声明的库以及如何导入不包含类型声明的库
 
 > 以unders举例来说,先通过包管理器安装`types/underscore`
 
@@ -34,9 +34,9 @@ let lastNumber = _.last(array);
 console.log(lastNumber);
 // 5
 ```
-> 假设库`your-library`无法下载到types版本，亦即没有`(*.d.ts)`文件，
+> 假设库`your-library`无法下载到types版本,亦即没有`(*.d.ts)`文件,
 
-> 那么检测是否存在文件`src/typings.d.ts`,如若不存在则创建，在文件存在的条件下添加
+> 那么检测是否存在文件`src/typings.d.ts`,如若不存在则创建,在文件存在的条件下添加
 
 ```
 declare module 'your-library'
@@ -51,9 +51,9 @@ yourPreferedName.method();
 
 ### 如何向Angular中导入不存在于npm或yarn库中的库或模块
 
-> 情况下，开发Angular默认会使用NPM或者YARN其中一个作为项目的库管理器，并从`node_modules`中导入相应的`@type模块`应用于组件之中
+> 情况下,开发Angular默认会使用NPM或者YARN其中一个作为项目的库管理器,并从`node_modules`中导入相应的`@type模块`应用于组件之中
 
-> 但是总有一些状况导致项目开发需要的库并不能由npm或yarn导入，比如未发布的库或者私人开发的js模块等
+> 但是总有一些状况导致项目开发需要的库并不能由npm或yarn导入,比如未发布的库或者私人开发的js模块等
 
 > 更常见的状况是需要在Angular项目中使用非`@type类型`的JS库
 
